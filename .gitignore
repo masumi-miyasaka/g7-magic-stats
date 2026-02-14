@@ -1,0 +1,7 @@
+# Data files
+*.csv
+
+# Python virtual environment
+venv/
+__pycache__/
+.DS_Store
