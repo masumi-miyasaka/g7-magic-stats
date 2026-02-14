@@ -1,7 +1,7 @@
 import pandas as pd
 import wbgapi as wb
 
-countries = ['US', 'GB', 'FR', 'DE', 'IT', 'CA', 'JP']
+countries = ['USA', 'GBR', 'FRA', 'DEU', 'ITA', 'CAN', 'JPN']
 indicators = {
     'FP.CPI.TOTL.ZG': 'Inflation',
     'NY.GDP.MKTP.CD': 'Nominal_GDP',
@@ -14,7 +14,7 @@ end_year = 2025
 print("データを取得中...")
 
 try:
-    df = wd.data.DataFrame(indicators.keys(), countries, mr=10)
+    df = wb.data.DataFrame(indicators.keys(), countries, time=range(2014, 2024))
     df = df.reset_index()
     df['series'] = df['series'].map(indicators)
     df.to_csv('g7_economic_data.csv', index=False)
